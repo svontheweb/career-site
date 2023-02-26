@@ -4,16 +4,25 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href='/static/style.css'/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+  <style>
+    #banner {
+      width: 100%;
+      height: 600px;
+      object-fit: cover;
+    }
+  </style>
+
   <title>Job Listings</title>
 </head>
 <body>
-  <div id="container">
-    <h1>Top Carrers</h1>
-    <img id="banner" src="https://career-site.svontheweb.repl.co/static/banner.jpg" height="340"> 
+  <div class="container">
+    <h1 class="text-center mt-2 mb-4">{{ company_name }} Carrers</h1>
+    <img class="img-fluid" id="banner" src="https://career-site.svontheweb.repl.co/static/banner.jpg" height="340"> 
   
-    <h2>About Us</h2>
-    <p class="bodytext">Welcome to our job listing site! We are a team of dedicated professionals who strive to make the job searching and hiring process as smooth and efficient as possible. Our platform connects job seekers with employers in a variety of industries, providing access to a wide range of job opportunities.<br><br>
+    <h2 class="text-center mt-4 mb-4">About Us</h2>
+    <p  class="lead">Welcome to our job listing site! We are a team of dedicated professionals who strive to make the job searching and hiring process as smooth and efficient as possible. Our platform connects job seekers with employers in a variety of industries, providing access to a wide range of job opportunities.<br><br>
   
   Our mission is to bridge the gap between talented job seekers and top employers, helping both parties achieve their career goals. We understand the challenges of the job search process, and we are committed to providing support and guidance every step of the way.<br>
   
@@ -21,10 +30,23 @@
   
   Whether you are looking for your dream job or searching for top talent to join your team, we are here to help. Join our community today and take the first step towards achieving your career goals.</p>
   
-  <h2>Open Positions</h2>
-  <p class="bodytext">todo job openings list</p>
-    <div style="text-align: center;">
-    <button>Contact Us</button>
+  <h2 class="text-center mt-4 mb-4">Open Positions</h2>
+  <div class="row align-items-center" style="margin-bottom: 25px;">
+    {% for job in jobs: %}
+      <div  class="border-bottom border-warning col-9">
+        <h4 style="margin-bottom: 16px; color: rgb(120, 120, 120);"> {{ job['title'] }} </h4>
+        <h5 class='h5'><b> Location: </b> {{ job['location'] }} </h5>
+        {% if 'salary' in job: %}
+          <h6 class='h6'><b> Salary offered: </b> {{ job['salary'] }} </h6>
+        {% endif %}
+      </div>
+    <div class='col-3 text-end'>
+      <button class='btn btn-outline-primary'> Apply </button>
+    </div>
+    {% endfor%}
+  </div>
+    <div class='text-center'>
+    <button class="btn btn-primary btn-lg mt-4">Contact Us</button>
   <p> free to use @ 2023</p>
       
     </div>    
