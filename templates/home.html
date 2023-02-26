@@ -33,16 +33,7 @@
   <h2 class="text-center mt-4 mb-4">Open Positions</h2>
   <div class="row align-items-center" style="margin-bottom: 25px;">
     {% for job in jobs: %}
-      <div  class="border-bottom border-warning col-9">
-        <h4 style="margin-bottom: 16px; color: rgb(120, 120, 120);"> {{ job['title'] }} </h4>
-        <h5 class='h5'><b> Location: </b> {{ job['location'] }} </h5>
-        {% if 'salary' in job: %}
-          <h6 class='h6'><b> Salary offered: </b> {{ job['salary'] }} </h6>
-        {% endif %}
-      </div>
-    <div class='col-3 text-end'>
-      <button class='btn btn-outline-primary'> Apply </button>
-    </div>
+      {% include 'jobitem.html' %}
     {% endfor%}
   </div>
     <div class='text-center'>
