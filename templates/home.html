@@ -17,11 +17,15 @@
   <title>Job Listings</title>
 </head>
 <body>
+  {% include 'navbar.html' %}
+  
   <div class="container">
     <h1 class="text-center mt-2 mb-4">{{ company_name }} Carrers</h1>
     <img class="img-fluid" id="banner" src="https://career-site.svontheweb.repl.co/static/banner.jpg" height="340"> 
   
-    <h2 class="text-center mt-4 mb-4">About Us</h2>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="text-center mt-4 mb-4">About Us</h2>
     <p  class="lead">Welcome to our job listing site! We are a team of dedicated professionals who strive to make the job searching and hiring process as smooth and efficient as possible. Our platform connects job seekers with employers in a variety of industries, providing access to a wide range of job opportunities.<br><br>
   
   Our mission is to bridge the gap between talented job seekers and top employers, helping both parties achieve their career goals. We understand the challenges of the job search process, and we are committed to providing support and guidance every step of the way.<br>
@@ -29,6 +33,11 @@
   Our team consists of experienced recruiters and career experts who are passionate about helping job seekers succeed. We are constantly working to improve our platform and provide the best possible experience for our users.<br>
   
   Whether you are looking for your dream job or searching for top talent to join your team, we are here to help. Join our community today and take the first step towards achieving your career goals.</p>
+    </div>
+    <div class="d-none d-md-block col-md-6">
+      <img src="/static/people working.jpg">
+    </div>
+  </div>
   
   <h2 class="text-center mt-4 mb-4">Open Positions</h2>
   <div class="row align-items-center" style="margin-bottom: 25px;">
@@ -36,11 +45,10 @@
       {% include 'jobitem.html' %}
     {% endfor%}
   </div>
-    <div class='text-center'>
-    <button class="btn btn-primary btn-lg mt-4">Contact Us</button>
-  <p> free to use @ 2023</p>
-      
-    </div>    
+    
+
+    
+  {% include 'footer.html' %}
   </div>
 </body>
 </html>
